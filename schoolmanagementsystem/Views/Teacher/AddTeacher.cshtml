@@ -1,0 +1,39 @@
+﻿@model schoolmanagementsystem.Models.ViewModels.AddTeacherViewModel;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Update New Teacher";
+}
+<h2 class="my-4">Add Teacher</h2>
+
+@using (Html.BeginForm("AddTeacher", "Teacher", FormMethod.Post, new { @class = "needs-validation", enctype = "multipart/form-data", novalidate = "novalidate" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group mb-3 col-3">
+        @Html.LabelFor(model => model.Name, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Name" })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group mb-3 col-3">
+        @Html.LabelFor(model => model.Picture, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Picture, new { @class = "form-control", placeholder = "ImgUrl" })
+    </div>
+
+    <div class="form-group mb-3 col-3">
+        @Html.LabelFor(model => model.PhoneNumber, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", placeholder = "PhoneNumber" })
+    </div>
+
+    <div class="form-group mb-3 col-3">
+        @Html.LabelFor(model => model.Subject, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Subject, new { @class = "form-control", placeholder = "Subject" })
+    </div>
+    <div class="d-flex align-content-center ">
+
+        <button type="submit" class="btn btn-primary">Add Teacher</button>
+        <a href="@Url.Action("TeacherList", "Teacher")" class="btn btn-primary ms-4">Back to Teacher List</a>
+
+    </div>
+}

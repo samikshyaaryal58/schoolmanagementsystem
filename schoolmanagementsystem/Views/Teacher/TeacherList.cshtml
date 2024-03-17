@@ -1,0 +1,44 @@
+﻿@model schoolmanagementsystem.Models.ViewModels.TeacherListViewModel;
+
+
+<div class="d-flex justify-content-between my-3">
+    <h2>All Teachers   </h2>
+
+    <a href="@Url.Action("AddTeacher", "Teacher")" class="btn btn-primary mt-2">Add Teacher</a>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+
+
+    @foreach (var teacher in Model.Teachers)
+    {
+        <div class="col">
+
+
+            <div class="card pie-card">
+                <img src="@teacher.Picture" class="card-img-top img" alt="@teacher.Name">
+                <div class="card-body pie-button">
+
+                    <div class="d-flex justify-content-between mt-2">
+                        <h2 class="text-start">
+                            <a class="pie-link text-decoration-none text-dark">@teacher.Name</a>
+
+                        </h2>
+                        <h3>@teacher.Subject</h3>
+
+                    </div>
+                    <div class="d-flex justify-content-between">
+
+                        <a href="@Url.Action("UpdateTeacher", "Teacher", new { id = teacher.TeacherId })" class="btn btn-primary mt-2">Edit Teacher</a>
+
+
+                        <a href="@Url.Action("DeleteTeacher", "Teacher", new { id = teacher.TeacherId })" class="btn btn-danger mt-2">Delete</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>

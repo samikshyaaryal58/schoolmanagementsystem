@@ -1,0 +1,23 @@
+﻿@model schoolmanagementsystem.Models.ViewModels.TeacherViewModels.UpdateTeacherViewModel;
+<div class="wrapper">
+    <form method="post">
+        <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Class Id</label>
+            <input type="text" class="form-control" id="recipient-name" readonly placeholder="Product Name" asp-for="ClassId">
+        </div>
+        <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Class Name</label>
+            <input type="text" class="form-control" id="recipient-name" placeholder="ClassName" asp-for="Name">
+        </div>
+        <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Section</label>
+            <input type="text" class="form-control" id="recipient-name" placeholder="Section" asp-for="Section">
+        </div>
+
+        <div>
+
+            <button type="submit" class="btn btn-primary">Update Class</button>
+
+        </div>
+    </form>
+</div>

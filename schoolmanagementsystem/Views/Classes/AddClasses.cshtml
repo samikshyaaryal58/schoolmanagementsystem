@@ -1,0 +1,30 @@
+﻿@model schoolmanagementsystem.Models.ViewModels.AddClassesViewModel;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Update New Classes";
+}
+<h2 class="my-4">Add Classes</h2>
+
+@using (Html.BeginForm("AddClasses", "Classes", FormMethod.Post, new { @class = "needs-validation", enctype = "multipart/form-data", novalidate = "novalidate" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group mb-3 col-3">
+        @Html.LabelFor(model => model.Name, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Name" })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group mb-3 col-3">
+        @Html.LabelFor(model => model.Section, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Section, new { @class = "form-control", placeholder = "Name" })
+        @Html.ValidationMessageFor(model => model.Section, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="d-flex align-content-center ">
+
+        <button type="submit" class="btn btn-primary">Add Classes</button>
+        <a href="@Url.Action("ClassesList", "Classes")" class="btn btn-primary ms-4">Back to Classes List</a>
+
+    </div>
+}
